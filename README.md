@@ -5,4 +5,5 @@ SedFoam case setup for sheet flow under a near-breaking transient (details of ph
 1. foamCleanPolyMesh
 2. blockMesh
 3. go to 0 folder: cp -r alpha.org alpha
-4. sedFoam
+4. funkySetFields -time 0
+5. sedFoam
