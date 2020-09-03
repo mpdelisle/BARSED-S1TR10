@@ -1,0 +1,131 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inandouthalf11
+    {
+        type            groovyBCJump;
+        patchType       cyclic;
+        jump            uniform 0;
+        value           uniform 0;
+        jumpExpression  "dpdx*Lx";
+        variables       "Lx=0.4;";
+        timelines       (
+{
+        name            dpdx;
+        fileName        "$FOAM_CASE/dpdx.data";
+        outOfBounds     clamp;
+}
+);
+        lookuptables    (
+);
+        value           uniform 0;
+    }
+    inandouthalf12
+    {
+        $inandouthalf11;
+    }
+    inandouthalf21
+    {
+        type            groovyBCJump;
+        patchType       cyclic;
+        jump            uniform 0;
+        value           uniform 0;
+        jumpExpression  "dpdx*Lx";
+        variables       "Lx=0.4;";
+        timelines       (
+{
+        name            dpdx;
+        fileName        "$FOAM_CASE/dpdx.data";
+        outOfBounds     clamp;
+}
+);
+        lookuptables    (
+);
+        value           uniform 0;
+    }
+    inandouthalf22
+    {
+        $inandouthalf21;
+    }
+    inandouthalf31
+    {
+        type            groovyBCJump;
+        patchType       cyclic;
+        jump            uniform 0;
+        value           uniform 0;
+        jumpExpression  "dpdx*Lx";
+        variables       "Lx=0.4;";
+        timelines       (
+{
+        name            dpdx;
+        fileName        "$FOAM_CASE/dpdx.data";
+        outOfBounds     clamp;
+}
+);
+        lookuptables    (
+);
+        value           uniform 0;
+    }
+    inandouthalf32
+    {
+        $inandouthalf31;
+    }
+    inandouthalf41
+    {
+        type            groovyBCJump;
+        patchType       cyclic;
+        jump            uniform 0;
+        value           uniform 0;
+        jumpExpression  "dpdx*Lx";
+        variables       "Lx=0.4;";
+        timelines       (
+{
+        name            dpdx;
+        fileName        "$FOAM_CASE/dpdx.data";
+        outOfBounds     clamp;
+}
+);
+        lookuptables    (
+);
+        value           uniform 0;
+    }
+    inandouthalf42
+    {
+        $inandouthalf41;
+    }
+    top
+    {
+        type            symmetryPlane;
+    }
+    walls
+    {
+        type            zeroGradient;
+    }
+    frontAndBackPlanes
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //
