@@ -1,0 +1,24 @@
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "system";
+    local           "";
+
+    class           dictionary;
+    object          funkySetFieldsDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+expressions
+(
+ alpha 
+  {
+    field alpha;
+    keepPatches true;
+    expression "0.5*0.61*(1+tanh(23.04-240*pos().y))"; //23.04/240 == 0.096 zb
+  }
+);

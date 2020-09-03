@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.7.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+alphaMinFriction alphaMinFriction [ 0 0 0 0 0 0 0 ] 0.57;
+alphacut        alphacut [ 0 0 0 0 0 0 0 ] 0.0005;
+alphaSmall      alphaSmall [ 0 0 0 0 0 0 0 ] 1e-5;
+
+phasea
+{
+    rho             rho [ 1 -3 0 0 0 ] 2650;
+    nu              nu [ 0 2 -1 0 0 ] 1.e-6;
+    d               d [ 0 1 0 0 0 0 0 ] 2.0e-04;
+    sF              sf [ 0 0 0 0 0 0 0 ] 1.0;
+    hExp            hExp [0 0 0 0 0 0 0 ] 2.65; 
+}
+
+phaseb
+{
+    rho             rho [ 1 -3 0 0 0 ] 1000;
+    nu              nu [ 0 2 -1 0 0 ] 1.e-06;
+    d               d [ 0 1 0 0 0 0 0 ] 2.8e-04;
+    sF              sf [ 0 0 0 0 0 0 0 ] 1.0;
+    hExp            hExp [0 0 0 0 0 0 0 ] 2.65;
+}
+
+Cvm             Cvm [ 0 0 0 0 0 ] 0;
+
+Cl              Cl [ 0 0 0 0 0 ] 0;
+
+Ct              Ct [ 0 0 0 0 0 ] 0;
+
+alphaAlpha      alphaAlpha [ 0 0 0 0 0 ] 0;
+
+// ************************************************************************* //
